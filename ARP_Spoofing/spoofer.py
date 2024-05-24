@@ -12,8 +12,6 @@ def set_params(target, router):
     router_ip = router["ip"]
     router_mac = router["mac"]
 
-    print(f"router ip {router_ip} \n router mac {router_mac} \n target ip {target_ip} \n target mac {target_mac}")
-
 
 def get_details():
     ip = input(">> Enter the target ip range : ")
@@ -50,3 +48,4 @@ def spoof():
 
 (target, router) = get_details()
 set_params(target, router)
+spoof()
