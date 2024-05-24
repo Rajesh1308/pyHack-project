@@ -1,7 +1,7 @@
 ## Play with networks - pyHack-project
 pyHack-project is a collection of programs that could perform network related attacks like ARP spoofing, Network scanning, DNS spoofing, etc.
 This project was developed and tested in containerized environment. It is adviced to run the program in ubuntu docker container and per the instructions.
-If you want to test it in real time, connect the container to a bridge network inside docker.
+If you want to test it in real time, connect the container to a bridge network.
 
 <h2>Instruction</h2>
 Install docker in the system and run the ubuntu container using the following command<br>
@@ -10,7 +10,6 @@ Install docker in the system and run the ubuntu container using the following co
 </tr></table>
 It installs the ubuntu image and runs it with the name 'attack-machine' (You can choose any other name). 
 It opens the bash terminal for the machine. If not, verify whether the conainer is up and running using the command:
-
 <table><tr>
     <th>docker ps</th>
 </tr></table>
