@@ -28,7 +28,7 @@ def get_details():
     return (device_list[target], device_list[router])
     
 
-def spoof():
+def spoof(target, router):
     target_ip = target["ip"]
     target_mac = target["mac"]
     router_ip = router["ip"]
