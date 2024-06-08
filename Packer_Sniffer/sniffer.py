@@ -17,7 +17,7 @@ def sniff(interface):
 
 def process_sniffed_packets(packet):
     if packet.haslayer(http.HTTPRequest):
-        print("URL -> " + packet.Host)
+        print("URL -> " + (packet.Host).decode())
 
 interface = get_interface()
 sniff(interface)
