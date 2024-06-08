@@ -13,7 +13,7 @@ def get_interface():
 
 
 def sniff(interface):
-    scapy.sniff(iface=interface, store=False, prn=process_sniffed_packets)
+    scapy.sniff(iface=interface, store=False, prn=process_sniffed_packets, filter="http")
 
 def process_sniffed_packets(packet):
     print(packet)
