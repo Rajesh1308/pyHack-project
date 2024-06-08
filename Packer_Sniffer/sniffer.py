@@ -21,7 +21,6 @@ def process_sniffed_packets(packet):
         http_request = packet[http.HTTPRequest]
         method = http_request.Method
         path = http_request.Path
-        headers = http_request.Headers
 
         # Check for presence of Raw layer (may not always contain data)
         if packet.haslayer(scapy.Raw):
@@ -30,7 +29,6 @@ def process_sniffed_packets(packet):
             request_body = "(No request body)"
 
         print(f"HTTP Request: {method} {path}")
-        print(f"Headers:\n{headers}")
         print(f"Request Body:\n{request_body}")
 
 interface = get_interface()
