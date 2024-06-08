@@ -20,7 +20,7 @@ def process_sniffed_packets(packet):
         print(scapy.ls(packet))
         http_request = packet[http.HTTPRequest]
         method = http_request.Method
-        url = http_request.URL
+        path = http_request.Path
         headers = http_request.Headers
 
         # Check for presence of Raw layer (may not always contain data)
@@ -29,7 +29,7 @@ def process_sniffed_packets(packet):
         else:
             request_body = "(No request body)"
 
-        print(f"HTTP Request: {method} {url}")
+        print(f"HTTP Request: {method} {path}")
         print(f"Headers:\n{headers}")
         print(f"Request Body:\n{request_body}")
 
