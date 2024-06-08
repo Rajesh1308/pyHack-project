@@ -17,7 +17,7 @@ def sniff(interface):
 
 def process_sniffed_packets(packet):
     if packet.haslayer(http.HTTPRequest):
-        print(type(packet))
+        print(scapy.ls(packet))
 
 interface = get_interface()
 sniff(interface)
