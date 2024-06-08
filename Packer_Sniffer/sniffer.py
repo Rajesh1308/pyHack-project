@@ -18,5 +18,5 @@ def sniff(interface):
 def process_sniffed_packets(packet):
     print(packet)
 
-get_interface()
-sniff()
+interface = get_interface()
+sniff(interface)
