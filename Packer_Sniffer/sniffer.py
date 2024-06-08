@@ -17,19 +17,8 @@ def sniff(interface):
 
 def process_sniffed_packets(packet):
     if packet.haslayer(http.HTTPRequest):
-        print(scapy.ls(packet))
-        http_request = packet[http.HTTPRequest]
-        method = http_request.Method
-        path = http_request.Path
-
-        # Check for presence of Raw layer (may not always contain data)
         if packet.haslayer(scapy.Raw):
-            request_body = packet[scapy.Raw].load.decode("utf-8", errors="ignore")  # Decode with error handling
-        else:
-            request_body = "(No request body)"
-
-        print(f"HTTP Request: {method} {path}")
-        print(f"Request Body:\n{request_body}")
+            print(packet.show())
 
 interface = get_interface()
 sniff(interface)
